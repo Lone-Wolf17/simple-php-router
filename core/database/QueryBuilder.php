@@ -14,4 +14,22 @@ class QueryBuilder {
         return $statement->fetchAll(PDO::FETCH_CLASS);
     }
 
+
+    public function insert ($table ,$parameters) {
+        // insert into names (`name`, `email`) values (:name, :email)
+        $sql = sprintf(
+            'insert into %s (%s) values (%s)',
+            $table, implode(', ', array_keys($parameters)),
+            ':' . implode(', :', array_keys($parameters))
+        );
+
+        try {
+            $statement = $this->pdo->prepare($sql);
+
+            $statement->execute($parameters);
+        } catch (PDOException $ex) {
+            die('Whoops, something went wrong');
+        }
+    }
+
 }
