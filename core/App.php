@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Core;
 
 // acts as our simple Dependency Injection container
 

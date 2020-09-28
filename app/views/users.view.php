@@ -1,4 +1,5 @@
-<?php require 'partials/head.php' ; ?>
+
+<?php require 'partials/head.php'; ?>
 
     <ul>
         <?php foreach ($users as $user) : ?>
@@ -9,7 +10,7 @@
 
     <h1>Submit your Name</h1>
 
-    <form method="POST" action="/names">
+    <form method="POST" action="/users">
         <label for="name"></label>
         <input name="name" required/>
 
